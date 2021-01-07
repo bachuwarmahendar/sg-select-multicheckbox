@@ -1,0 +1,12 @@
+<p>Group selects children</p>
+<br/>
+<ng-select [items]="teamrolemaplist" [multiple]="true" bindLabel="Name" groupBy="TeamName" [selectableGroup]="true"
+	[selectableGroupAsModel]="flase" [closeOnSelect]="false" bindValue="Id" [(ngModel)]="selectedteamrolemaplist">
+	<ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+		<input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.TeamName | uppercase}}
+    </ng-template>
+		<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+			<input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.RoleName}}
+    </ng-template>
+</ng-select>
+<button (click)="onClickMe()">Click me!</button>
